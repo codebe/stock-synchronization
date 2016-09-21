@@ -1,0 +1,13 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+
+
+services:
+    periodic_stock_sync:
+        class: AppBundle\Service\Synchronize
+        tags:
+            - { name: gos_web_socker.periodic }
+    update_bl_stock:
+        class: AppBundle\Service\UpdateBLStock
+        arguments: ["%bl_username%", "%bl_password%"]
